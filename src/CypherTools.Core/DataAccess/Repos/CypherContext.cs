@@ -1,14 +1,15 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using CypherTools.Core.Models;
 using System;
+using System.Net;
 
 namespace CypherTools.Core.DataAccess.Repos
 {
     public class CypherContext : DbContext
     {
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        public CypherContext(DbContextOptions<CypherContext> options) : base(options)
         {
-            optionsBuilder.UseNpgsql(Environment.GetEnvironmentVariable("postgresConnectionString"));
+
         }
 
         public DbSet<Character> Characters { get; set; }
