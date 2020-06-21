@@ -25,10 +25,10 @@ namespace CypherTools.Core.Models
         public int LevelDie { get; set; }
         public int LevelBonus { get; set; }
 
-        public IEnumerable<CypherFormOption> Forms { get; set; }
+        public IList<CypherFormOption> Forms { get; set; }
 
         public string Effect { get; set; }
-        public IEnumerable<CypherEffectOption> EffectOptions { get; set; }
+        public IList<CypherEffectOption> EffectOptions { get; set; }
 
         public string Source { get; set; }
     }

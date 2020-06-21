@@ -19,16 +19,16 @@ namespace CypherTools.Core.Models
         public string Focus { get; set; }
 
         //Pools
-        public List<CharacterPool> Pools { get; set; }
+        public IList<CharacterPool> Pools { get; set; }
 
         public int RecoveryDie { get; set; }
         public int RecoveryMod { get; set; }
-        public List<CharacterRecoveryRoll> RecoveryRolls { get; set; }
+        public IList<CharacterRecoveryRoll> RecoveryRolls { get; set; }
 
-        public List<CharacterCypher> Cyphers { get; set; }
-        public List<CharacterInventory> Inventory { get; set; }
-        public List<CharacterAbility> Abilities { get; set; }
-        public List<CharacterArtifact> Artifacts { get; set; }
+        public IList<CharacterCypher> Cyphers { get; set; }
+        public IList<CharacterInventory> Inventory { get; set; }
+        public IList<CharacterAbility> Abilities { get; set; }
+        public IList<CharacterArtifact> Artifacts { get; set; }
 
         public Character()
         {
