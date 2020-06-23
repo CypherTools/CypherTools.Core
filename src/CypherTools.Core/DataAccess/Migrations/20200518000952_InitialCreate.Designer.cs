@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace CypherTools.Core.dataaccess.Migrations
+namespace CypherTools.Core.DataAccess.Migrations
 {
     [DbContext(typeof(CypherContext))]
     [Migration("20200518000952_InitialCreate")]

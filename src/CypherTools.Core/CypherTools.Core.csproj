@@ -6,7 +6,7 @@
     <AssemblyName>CypherTools.Core</AssemblyName>
     <RootNamespace>CypherTools.Core</RootNamespace>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-    <Version>1.0.4</Version>
+    <Version>1.0.5</Version>
     <RepositoryUrl>https://github.com/CypherTools/CypherTools.Core</RepositoryUrl>
     <Authors>Josiah Bradbury</Authors>
     <PackageProjectUrl>https://github.com/CypherTools/CypherTools.Core</PackageProjectUrl>

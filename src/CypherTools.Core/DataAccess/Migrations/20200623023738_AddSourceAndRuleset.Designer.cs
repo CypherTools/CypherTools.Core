@@ -3,15 +3,17 @@ using System;
 using CypherTools.Core.DataAccess.Repos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 namespace CypherTools.Core.DataAccess.Migrations
 {
     [DbContext(typeof(CypherContext))]
-    partial class CypherContextModelSnapshot : ModelSnapshot
+    [Migration("20200623023738_AddSourceAndRuleset")]
+    partial class AddSourceAndRuleset
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

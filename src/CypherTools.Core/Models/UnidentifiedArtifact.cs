@@ -22,6 +22,7 @@ namespace CypherTools.Core.Models
 
         public string Effect { get; set; }
         public string Source { get; set; }
+        public string Ruleset { get; set; }
         public string Depletion { get; set; }
     }
 }

@@ -10,5 +10,8 @@ namespace CypherTools.Core.Models
 		public int StartRange { get; set; }
 		public int EndRange { get; set; }
 		public string Quirk { get; set; }
+
+		public string Source { get; set; }
+		public string Ruleset { get; set; }
 	}
 }

@@ -31,5 +31,6 @@ namespace CypherTools.Core.Models
         public IList<CypherEffectOption> EffectOptions { get; set; }
 
         public string Source { get; set; }
+        public string Ruleset { get; set; }
     }
 }

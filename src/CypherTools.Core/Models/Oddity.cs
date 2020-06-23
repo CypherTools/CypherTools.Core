@@ -8,5 +8,7 @@ namespace CypherTools.Core.Models
 	{
 		public int OddityId { get; set; }
 		public string OddityDescription { get; set; }
+
+		public string Source { get; set; }
 	}
 }

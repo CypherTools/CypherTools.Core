@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
-namespace CypherTools.Core.dataaccess.Migrations
+namespace CypherTools.Core.DataAccess.Migrations
 {
     public partial class InitialCreate : Migration
     {
