@@ -34,7 +34,7 @@ jobs:
           # package repository owner
           repo-owner: CypherTools
           # user account
-          gh-user: herrozerro
+          gh-user: CypherTools
           # access token
           token: ${{secrets.GITHUB_TOKEN}}  
           # skip publishing duplicated package(s)
