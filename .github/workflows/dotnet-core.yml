@@ -27,7 +27,7 @@ jobs:
           
       - name: Build solution and generate NuGet package
         run: |  
-          cd CypherTools.Core
+          cd src/CypherTools.Core
           dotnet pack -c Release -o out  
 
       - name: Push generated package to GitHub registry
