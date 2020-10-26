@@ -10,6 +10,7 @@
     <RepositoryUrl>https://github.com/CypherTools/CypherTools.Core</RepositoryUrl>
     <Authors>Josiah Bradbury</Authors>
     <PackageProjectUrl>https://github.com/CypherTools/CypherTools.Core</PackageProjectUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
