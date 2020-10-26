@@ -21,18 +21,22 @@ jobs:
         
     - name: list files
       run: ls
+      working-directory: ./src
     - name: Install dependencies
       run: dotnet restore
+      working-directory: ./src
     - name: Build
       run: dotnet build --configuration Release --no-restore
+      working-directory: ./src
     - name: Test
       run: dotnet test --no-restore --verbosity normal
+      working-directory: ./src
     - name: Push Nupkg to GitHub Packages
   # You may pin to the exact commit or the version.
       uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
       with:
         # Path of NuPkg
-        nupkg-path: bin/Release
+        nupkg-path: ./src/bin/Release
         # package repository owner
         repo-owner: herrozerro
         # user account
