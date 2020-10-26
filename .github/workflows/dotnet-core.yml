@@ -1,47 +1,35 @@
-name: .NET Core
+name: NuGet Generation
 
 on:
   push:
-    branches: [ main ]
+    branches:
+      - master
   pull_request:
-    branches: [ main ]
+    types: [closed]
+    branches:
+      - master
 
 jobs:
   build:
-
-    runs-on: ubuntu-latest
-    env: 
-      working-directory: ./src
+    runs-on: ubuntu-18.04
+    name: Update NuGet package
     steps:
-    - uses: actions/checkout@v2
-    - name: Setup .NET Core
-      uses: actions/setup-dotnet@v1
-      with:
-        dotnet-version: 3.1.301
-        
-    - name: list files
-      run: ls
-      working-directory: ./src
-    - name: Install dependencies
-      run: dotnet restore
-      working-directory: ./src
-    - name: Build
-      run: dotnet build --configuration Release --no-restore
-      working-directory: ./src
-    - name: Test
-      run: dotnet test --no-restore --verbosity normal
-      working-directory: ./src
-    - name: Push Nupkg to GitHub Packages
-  # You may pin to the exact commit or the version.
-      uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
-      with:
-        # Path of NuPkg
-        nupkg-path: /src/CypherTools.Core/bin/Release
-        # package repository owner
-        repo-owner: herrozerro
-        # user account
-        gh-user: herrozerro
-        # access token
-        token: ${{ secrets.GITHUB_TOKEN }}
-        # skip publishing duplicated package(s)
-        skip-duplicate: true
+
+      - name: Checkout repository
+        uses: actions/checkout@v1
+
+      - name: Setup .NET Core @ Latest
+        uses: actions/setup-dotnet@v1
+        with:
+          source-url: https://nuget.pkg.github.com/CypherTools/index.json
+        env:
+          NUGET_AUTH_TOKEN: ${{secrets.GITHUB_TOKEN}}        
+          
+      - name: Build solution and generate NuGet package
+        run: |  
+          cd CypherTools.Core
+          dotnet pack -c Release -o out  
+
+      - name: Push generated package to GitHub registry
+        run: dotnet nuget push ./CypherTools.Core/out/*.nupkg --skip-duplicate --no-symbols true
+
