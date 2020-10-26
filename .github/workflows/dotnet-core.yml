@@ -1,0 +1,39 @@
+name: .NET Core
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Setup .NET Core
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 3.1.301
+    - name: Install dependencies
+      run: dotnet restore
+    - name: Build
+      run: dotnet build --configuration Release --no-restore
+    - name: Test
+      run: dotnet test --no-restore --verbosity normal
+    - name: Push Nupkg to GitHub Packages
+  # You may pin to the exact commit or the version.
+      uses: tanaka-takayoshi/nuget-publish-to-github-packages-action@v2.1
+      with:
+        # Path of NuPkg
+        nupkg-path: bin/Release
+        # package repository owner
+        repo-owner: herrozerro
+        # user account
+        gh-user: herrozerro
+        # access token
+        token: ${{ secrets.GITHUB_TOKEN }}
+        # skip publishing duplicated package(s)
+        skip-duplicate: true
